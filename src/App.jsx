@@ -17,13 +17,13 @@ function App() {
     {
       path:"/login",
       element:<LoginPage/>,
-      children:[
-        {
-          path:"/login/signup",
-          element:<SignUpPage/>,
-        }
-      ]
+    
+    },
+    {
+      path:"/signup",
+      element:<SignUpPage/>,
     }
+  
   ]
 }
   ])

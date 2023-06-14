@@ -9,7 +9,7 @@ import "../styles/Login.css"
 
 export const LoginPage = () => {
   return (
-    <div className="h-[100vh] w-[100vw] fixed z-10  top-0 flex justify-center items-center divContainer">
+    <div className="h-[100vh] w-[100vw] fixed  top-0 flex justify-center items-center divContainer">
       <div className="loginContainer">
           <div className=" absolute right-0 mr-4 mt-4">
             <AiOutlineClose className="text-[24px] text-[#8d8d8d]" />
@@ -19,7 +19,7 @@ export const LoginPage = () => {
             <h2>Welcome back.</h2>
           </div>
           <div className="flex justify-center items-center flex-col mt-20">
-          <button className="linkToLogin">
+          <button className="linkToLogin"> 
             <FcGoogle className="icons "/>
             Sign in with Google
           </button>
