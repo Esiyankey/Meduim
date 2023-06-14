@@ -9,6 +9,9 @@ export default {
       backgroundColor: {
         'custom-gray': 'rgb(214, 214, 231)',
       },
+      fontFamily:{
+        'customPlayfair': ['Playfair Display', 'serif'],
+      },
     },
   },
   plugins: [],

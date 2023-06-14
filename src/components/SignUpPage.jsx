@@ -46,9 +46,9 @@ export const SignUpPage = () => {
     //   </div>
     // </div>
     <>
-      <div className="h-[100vh] w-[100vw] fixed z-10 top-0 flex justify-center items-center divContainer opacity-1 transition duration-300 ease-out ">
+      <div className="h-[100vh] w-[100vw] fixed z-10 top-0 flex justify-center items-center divContainer opacity-0 transition duration-300 ease-out ">
 
-        <div className="w-[700px] h-[750px] bg-[rgb(214, 214, 231)] flex-col m-auto flex justify-center relative items-center bg-custom-gray rounded">
+        <div className="w-[650px] h-[750px] bg-[rgb(214, 214, 231)] flex-col m-auto flex justify-center relative items-center bg-custom-gray rounded">
 
           <button className="absolute right-0 top-0 mr-4 mt-4">
             <AiOutlineClose className="text-[24px] text-[#8d8d8d]" />
@@ -59,15 +59,15 @@ export const SignUpPage = () => {
           </div>
 
           <div className="flex justify-center items-center flex-col mt-20">
-            <button className="mt-2 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px] border-2 border-[#a8a8a8] p-2">
+            <button className="mt-4 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px] border-2 border-[#a8a8a8] p-3">
               <FcGoogle className="icons " />
               Sign up with Google
             </button>
-            <button className="mt-2 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px] border-2 p-2 border-[#a8a8a8]">
+            <button className="mt-4 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px] border-2 p-3 border-[#a8a8a8]">
               <RiFacebookBoxFill className="icons text-blue-800" />
               Sign up with Facebook
             </button>
-            <button className="mt-2 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px]  border-2 p-2 border-[#a8a8a8]">
+            <button className="mt-4 flex justify-center items-center w-[230px] text-[14px] gap-2 text-[#292929] rounded-[30px]  border-2 p-3 border-[#a8a8a8]">
               <TfiEmail className="icons " />
               Sign in with Email
             </button>
