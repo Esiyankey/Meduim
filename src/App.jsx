@@ -1,40 +1,14 @@
-import { useState } from 'react';
-import { HomePage } from './components/HomePage';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import { LoginPage } from './components/LoginPage';
-import { SignUpPage } from './components/SignUpPage';
-
+import { useState } from "react";
+import { HomePage } from "./components/HomePage";
 
 function App() {
-  
-
-  const router = createBrowserRouter([
-
-{
-  path:"/",
-  element: <HomePage/>,
-  children:[
-    {
-      path:"/login",
-      element:<LoginPage/>,
-    
-    },
-    {
-      path:"/signup",
-      element:<SignUpPage/>,
-    }
-  
-  ]
-}
-  ])
-
- 
-    
   return (
     <>
-    <RouterProvider router={router}/>
+      
+        <HomePage />
+      
     </>
-  )
+  );
 }
 
-export default App
+export default App;

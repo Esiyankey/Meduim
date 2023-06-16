@@ -1,14 +1,15 @@
 .loginContainer{
-    width: 700px;
-    height: 100%;
-    background-color: rgb(214, 214, 231);
+    width: 650px;
+    height: 750px;
+    background-color: white;
     position: relative;
     margin: auto;
     flex-direction: column;
-    border-radius: 3px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .divContainer{
-    /* background-color: rgba(255, 255, 255, 0.808); */
+    background-color: rgba(255, 255, 255, 0.801);
 }
 .linkToLogin{
     margin-top: 1rem;
@@ -28,5 +29,5 @@
 }
 .small{
     text-align: center;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
 }
