@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './styles/App.css'
 import { HomePage } from "./components/HomePage";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       
         <HomePage />
+      
       
     </>
   );

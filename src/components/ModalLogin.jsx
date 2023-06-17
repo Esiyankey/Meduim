@@ -4,9 +4,19 @@ import { FaApple, FaTwitter } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
 import { AiOutlineClose,AiFillGithub } from "react-icons/ai";
 import "../styles/Login.css";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import { app } from "./firebase.js";
 import { SignUpModal } from "./SignUpModal";
 
 export const ModalLogin = ({ handleCloseModal }) => {
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const gitProvider = new GithubAuthProvider();
   const [showSignUp, setShowSignUp] = useState(false);
 
   const handleShowSignUp = () => {
@@ -17,8 +27,37 @@ export const ModalLogin = ({ handleCloseModal }) => {
     handleCloseModal();
   };
 
+//sign up with github
+const handleGithubSignUp = async () => {
+  try{
 
-  
+    const githubSignUp = await signInWithPopup(auth, gitProvider);
+    const credential = GithubAuthProvider.credentialFromResult(githubSignUp);
+    const token = credential.accessToken;
+  }catch(error){
+    console.log(error.code);
+    console.log(error.message);
+    console.log(error.customData.email);
+    console.log(error.code);
+  }
+};
+
+//signup with google
+const handleGoogleSignUp = async () => {
+  try {
+    const userSignUp = await signInWithPopup(auth, provider);
+    const credential = GoogleAuthProvider.credentialFromResult(userSignUp);
+    const token = credential.accessToken;
+  } catch (error) {
+    console.log(error.code);
+    console.log(error.message);
+    console.log(error.customData.email);
+    console.log(error.code);
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log(credential);
+  }
+};
+
   return (
     <div className="h-[100vh] w-[100vw]  fixed z-10  top-0 flex justify-center items-center divContainer">
       <div className="loginContainer">
@@ -33,11 +72,11 @@ export const ModalLogin = ({ handleCloseModal }) => {
               <h2>Welcome back.</h2>
             </div>
             <div className="flex justify-center items-center flex-col mt-20">
-              <button className="linkToLogin">
+              <button className="linkToLogin" onClick={handleGoogleSignUp}>
                 <FcGoogle className="icons " />
                 Sign in with Google
               </button>
-              <button className="linkToLogin">
+              <button className="linkToLogin" onClick={handleGithubSignUp}>
                 <AiFillGithub className="icons" />
                 Sign in with Github
               </button>
