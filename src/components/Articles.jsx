@@ -7,8 +7,8 @@ export const Articles = ({isSticky}) => {
   const Styles = {
     paddingLeft: "1.7rem",
     paddingRight: "1.7rem",
-    paddingTop: "0.9rem",
-    paddingBottom: "0.9rem",
+    paddingTop: "0.6rem",
+    paddingBottom: "0.6rem",
     borderRadius: "30px",
     backgroundColor: "#f5f5f5",
   };
@@ -205,8 +205,8 @@ export const Articles = ({isSticky}) => {
 
   return (
     <>
-      <div className="mt-24 flex relative ">
-        <div className="flex-[65%] ">
+      <div className="mt-14 flex relative ">
+        <div className="flex-[65%] overflow-y-auto ">
           {List.map((item) => {
             return (
               <div className="flex gap-7 w-[45rem] mx-auto mb-20 ">
@@ -231,8 +231,8 @@ export const Articles = ({isSticky}) => {
                       <span> . </span>
                       <span>{item.time}</span>
                       <span>.</span>
-                      <span>
-                        <button className="py-1 px-3 rounded-[30px] bg-gray-100 text-[0.8rem] text-gray-500">
+                      <span className="ml-2">
+                        <button className="py-1 px-3 rounded-[30px] bg-gray-50 text-[0.8rem] capitalize text-gray-500">
                           {item.category}
                         </button>
                       </span>
@@ -253,15 +253,15 @@ export const Articles = ({isSticky}) => {
             );
           })}
         </div>
-        <div className={`flex-[35%] ${isSticky? "sticky":""}`} style={isSticky? sticky :null}>
+        <div className={`flex-[35%]  ${isSticky? "sticky":""}`} style={isSticky? sticky :null}>
           <div className="border-b-2 max-w-[500px] ">
-            <div className="mb-10">
+            <div className="mb-6">
               <h3 className="text-[1rem] text-[#292929] font-[500]">
                 Discover more of what matters to you
               </h3>
             </div>
             <div
-              className="flex flex-wrap gap-1  "
+              className="flex flex-wrap gap-3  "
               style={{ gridAutoFlow: "dense" }}
             >
               <div>
@@ -310,7 +310,7 @@ export const Articles = ({isSticky}) => {
                 </button>
               </div>
             </div>
-            <div className="mt-[4rem] mb-6 text-[#00791e] hover:text-[black] transition duration-700 ease">
+            <div className="  `, mt-7 mb-6 text-[#00791e] hover:text-[black] transition duration-700 ease">
               <span>See more topics</span>
             </div>
           </div>

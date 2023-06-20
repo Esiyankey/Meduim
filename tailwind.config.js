@@ -12,6 +12,9 @@ export default {
       fontFamily: {
         display: ["Caladea", "serif"],
       },
+      boxShadow: {
+        'custom': ['rgba(0, 0, 0, 0.1) 0px 4px 12px'],
+      },
     },
   },
   plugins: [],

@@ -20,6 +20,15 @@ export const LandingPage = () => {
       setIsSticky(false);
     }
   };
+  const handleScroll =()=>{
+    if (window.scrollY>80){
+
+      setShowScroll(true);
+    }
+    else{
+      setShowScroll(false)
+    }
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScrollSticky);
@@ -27,31 +36,20 @@ export const LandingPage = () => {
       window.removeEventListener("scroll", handleScrollSticky);
     };
   }, []);
+ 
+    window.addEventListener("scroll", handleScroll)
+  
 
   const Scroll = {
     backgroundColor: "white",
-    // position: "fixed",
+    position: "fixed",
+    
     width: "100%",
   };
 
   const Color = {
     backgroundColor: "#00751c",
   };
-
-  const handleScroll = () => {
-    if (window.scrollY > 320) {
-      setShowScroll(true);
-    } else {
-      setShowScroll(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -109,7 +107,7 @@ export const LandingPage = () => {
                   any topic.
                 </h3>
                 <button
-                  className="flex mt-12 font-[700] px-9 py-2 w-[230px] bg-[#191919] hover:bg-[black] text-white rounded-[30px] items-center text-center justify-center text-[1.25rem]"
+                  className="flex mt-12 font-[400] px-9 py-2 w-[230px] bg-[#191919] hover:bg-[black] text-white rounded-[30px] items-center text-center justify-center text-[1.25rem]"
                   onClick={handleShowModal}
                 >
                   Start reading
@@ -123,10 +121,10 @@ export const LandingPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="flex gap-3 mb-2">
               <BsGraphUpArrow/>
-              <h4 className="mb-3 text-[1rem] font-[700]">Trending on Medium</h4>
+              <h4 className="mb-3 text-[1rem] font-[500]">Trending on Medium</h4>
             </div>
             <div className="grid grid-cols-3  gap-y-12 ">
-              <div className="flex gap-2 ">
+              <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">01</span>
                 </div>
@@ -145,14 +143,14 @@ export const LandingPage = () => {
                       <br /> Pro:Heavy,Man!
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[300] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem]">02</span>
                 </div>
@@ -170,14 +168,14 @@ export const LandingPage = () => {
                     I’m an ER doctor. Here’s how I’m already using ChatGPT to help treat
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[300] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">03</span>
                 </div>
@@ -195,14 +193,14 @@ export const LandingPage = () => {
                     The Other Side of Veterinary Medicine
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[300] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">04</span>
                 </div>
@@ -220,14 +218,14 @@ export const LandingPage = () => {
                     Do Aliens Have Hair?
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[300] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">05</span>
                 </div>
@@ -245,14 +243,15 @@ export const LandingPage = () => {
                     The Emergence of The Blueprint IV:<br/> Blue Ivy Carter
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[400] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>
                   </div>
                 </div>
               </div>
-              <div className="flex gap-2 ">
+              <div className="flex gap-4
+               ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">06</span>
                 </div>
@@ -270,7 +269,7 @@ export const LandingPage = () => {
                     A Recruiter Actually Said This to Me
                     </h4>
                   </div>
-                  <div>
+                  <div className="font-[300] opacity-[0.3]">
                     <span>Jun 7</span>
                     <span> . </span>
                     <span>16 min read</span>

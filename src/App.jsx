@@ -5,25 +5,20 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./components/HomePage";
 
 function App() {
-
- const router = createBrowserRouter([
+  const router = createBrowserRouter([
     {
-      path:"/",
-      element: <LandingPage />
+      path: "/",
+      element: <LandingPage />,
     },
     {
-      path:"/home",
-      element: <HomePage/>
+      path: "/home",
+      element: <HomePage />,
     },
-
-  ])
+  ]);
   return (
     <>
-
-      <RouterProvider router={router}/>
-       
       
-      
+        <RouterProvider router={router} />
     </>
   );
 }

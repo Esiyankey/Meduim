@@ -11,7 +11,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { app } from "./firebase.js";
-
+import { useNavigate } from "react-router-dom";
 
 export const ModalLogin = ({ handleCloseModal }) => {
   const auth = getAuth(app);
@@ -30,13 +30,14 @@ export const ModalLogin = ({ handleCloseModal }) => {
     handleCloseModal();
   };
   
-
+const navigate = useNavigate();
   //sign up with github
   const handleGithubSignUp = async () => {
     try {
       const githubSignUp = await signInWithPopup(auth, gitProvider);
       const credential = GithubAuthProvider.credentialFromResult(githubSignUp);
       const token = credential.accessToken;
+      navigate("/home");
     } catch (error) {
       console.log(error.code);
       console.log(error.message);
@@ -44,6 +45,8 @@ export const ModalLogin = ({ handleCloseModal }) => {
       console.log(error.code);
     }
   };
+  
+  
 
   //signup with google
   const handleGoogleSignUp = async () => {
@@ -51,6 +54,7 @@ export const ModalLogin = ({ handleCloseModal }) => {
       const userSignUp = await signInWithPopup(auth, provider);
       const credential = GoogleAuthProvider.credentialFromResult(userSignUp);
       const token = credential.accessToken;
+      navigate("/home");
     } catch (error) {
       console.log(error.code);
       console.log(error.message);
