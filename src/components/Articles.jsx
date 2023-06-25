@@ -1,9 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BsBookmark } from "react-icons/bs";
-export const Articles = ({isSticky}) => {
-  
-
-
+export const Articles = ({ isSticky }) => {
   const Styles = {
     paddingLeft: "1.7rem",
     paddingRight: "1.7rem",
@@ -12,6 +9,12 @@ export const Articles = ({isSticky}) => {
     borderRadius: "30px",
     backgroundColor: "#f5f5f5",
   };
+  const Sticky ={
+    position:"fixed",
+    left:"60%",
+    top:"150px",
+  }
+
 
   const List = [
     {
@@ -60,153 +63,148 @@ export const Articles = ({isSticky}) => {
       img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
     },
     {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
-        name: "Terry Barr",
-        title: "What My Book Adaptation Taught Me About Hollywood",
-        body: "1972, John Prine, Neil Young, and friendship",
-        date: "Jun 14",
-        time: "7 min read",
-        category: "music",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
-      },
-      {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
-        name: "Annie Foley in Wise & Well",
-        title: "You’re Not 50% Mom, 50% Dad Like They Told You",
-        body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "science",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        name: "Louis Byrd",
-        title: "Through the Eyes of a Black Father",
-        body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "Mental Health",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        name: "Wolfgang Hauptfleisch",
-        title:
-          "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
-        body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
-        date: "Jun 8",
-        time: "5 min read",
-        category: "Social Mental",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
-      },
-      {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
-        name: "Terry Barr",
-        title: "What My Book Adaptation Taught Me About Hollywood",
-        body: "1972, John Prine, Neil Young, and friendship",
-        date: "Jun 14",
-        time: "7 min read",
-        category: "music",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
-      },
-      {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
-        name: "Annie Foley in Wise & Well",
-        title: "You’re Not 50% Mom, 50% Dad Like They Told You",
-        body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "science",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        name: "Louis Byrd",
-        title: "Through the Eyes of a Black Father",
-        body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "Mental Health",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        name: "Wolfgang Hauptfleisch",
-        title:
-          "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
-        body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
-        date: "Jun 8",
-        time: "5 min read",
-        category: "Social Mental",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
-      },
-      {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
-        name: "Terry Barr",
-        title: "What My Book Adaptation Taught Me About Hollywood",
-        body: "1972, John Prine, Neil Young, and friendship",
-        date: "Jun 14",
-        time: "7 min read",
-        category: "music",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
-      },
-      {
-        imgPortfolio:
-          "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
-        name: "Annie Foley in Wise & Well",
-        title: "You’re Not 50% Mom, 50% Dad Like They Told You",
-        body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "science",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
-        name: "Louis Byrd",
-        title: "Through the Eyes of a Black Father",
-        body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
-        date: "Jun 12",
-        time: "6 min read",
-        category: "Mental Health",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
-      },
-      {
-        imgPortfolio:
-          "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-        name: "Wolfgang Hauptfleisch",
-        title:
-          "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
-        body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
-        date: "Jun 8",
-        time: "5 min read",
-        category: "Social Mental",
-        img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
-      },
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
+      name: "Terry Barr",
+      title: "What My Book Adaptation Taught Me About Hollywood",
+      body: "1972, John Prine, Neil Young, and friendship",
+      date: "Jun 14",
+      time: "7 min read",
+      category: "music",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
+    },
+    {
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
+      name: "Annie Foley in Wise & Well",
+      title: "You’re Not 50% Mom, 50% Dad Like They Told You",
+      body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "science",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      name: "Louis Byrd",
+      title: "Through the Eyes of a Black Father",
+      body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "Mental Health",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Wolfgang Hauptfleisch",
+      title:
+        "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
+      body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
+      date: "Jun 8",
+      time: "5 min read",
+      category: "Social Mental",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
+    },
+    {
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
+      name: "Terry Barr",
+      title: "What My Book Adaptation Taught Me About Hollywood",
+      body: "1972, John Prine, Neil Young, and friendship",
+      date: "Jun 14",
+      time: "7 min read",
+      category: "music",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
+    },
+    {
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
+      name: "Annie Foley in Wise & Well",
+      title: "You’re Not 50% Mom, 50% Dad Like They Told You",
+      body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "science",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      name: "Louis Byrd",
+      title: "Through the Eyes of a Black Father",
+      body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "Mental Health",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Wolfgang Hauptfleisch",
+      title:
+        "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
+      body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
+      date: "Jun 8",
+      time: "5 min read",
+      category: "Social Mental",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
+    },
+    {
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:40:40/1*dG_T_tBLzdhZU-45_5r_NQ.png",
+      name: "Terry Barr",
+      title: "What My Book Adaptation Taught Me About Hollywood",
+      body: "1972, John Prine, Neil Young, and friendship",
+      date: "Jun 14",
+      time: "7 min read",
+      category: "music",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/0*IaJ9Q0XqX-siwrol",
+    },
+    {
+      imgPortfolio:
+        "https://miro.medium.com/v2/resize:fill:20:20/1*tlSJZopCPn4cndd9KrDLPg.png",
+      name: "Annie Foley in Wise & Well",
+      title: "You’re Not 50% Mom, 50% Dad Like They Told You",
+      body: "Good thing, too, because you’d probably be dead if you had equal doses of their genetic instructions",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "science",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*fcGkT8HsmWBfRb_VoozWPg.png",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1518518873111-6ca469aa4560?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBvcnRmb2xpbyUyMGltYWdlJTIwcGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
+      name: "Louis Byrd",
+      title: "Through the Eyes of a Black Father",
+      body: "Unmasking the Pain: The Reality of Stress and Depression Among Black Men in Fatherhood",
+      date: "Jun 12",
+      time: "6 min read",
+      category: "Mental Health",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*uAfPFtBJqdYq04GS9nGBwg.jpeg",
+    },
+    {
+      imgPortfolio:
+        "https://images.unsplash.com/photo-1587837073080-448bc6a2329b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9ydGZvbGlvJTIwaW1hZ2UlMjBwZW9wbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      name: "Wolfgang Hauptfleisch",
+      title:
+        "Reddit’s Latest Mod Revolt Highlights a Question Bigger than API Pricing: Who “Owns It”?",
+      body: "This Monday, from June 12th, Reddit is facing a “blackout”, meaning many subreddit moderators will turn their subs",
+      date: "Jun 8",
+      time: "5 min read",
+      category: "Social Mental",
+      img: "https://miro.medium.com/v2/resize:fill:200:134/1*TUEbbjZ0BUQutZ6951Wg6Q.jpeg",
+    },
   ];
-
-  const sticky = {
-    position: "sticky",
-    top:0,
-  };
 
  
 
   return (
     <>
-      <div className="mt-14 flex relative ">
-        <div className="flex-[65%] overflow-y-auto ">
+      <div className="mt-14 flex  ">
+        <div className="flex-[60%] overflow-y-auto ">
           {List.map((item) => {
             return (
               <div className="flex gap-7 w-[45rem] mx-auto mb-20 ">
@@ -253,8 +251,11 @@ export const Articles = ({isSticky}) => {
             );
           })}
         </div>
-        <div className={`flex-[35%]  ${isSticky? "sticky":""}`} style={isSticky? sticky :null}>
-          <div className="border-b-2 max-w-[500px] ">
+        <div
+          className={`flex-[40%]   `}
+  
+        >
+          <div className={`border-b-2 transition duration-1000 ease-in max-w-[500px] ${isSticky ? "Sticky" : ""}`} style={isSticky? Sticky:null}>
             <div className="mb-6">
               <h3 className="text-[1rem] text-[#292929] font-[500]">
                 Discover more of what matters to you
@@ -275,37 +276,37 @@ export const Articles = ({isSticky}) => {
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Technology
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Self Improvement
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Writing
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Relationships
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Machine Learning
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Productivity
                 </button>
               </div>
               <div>
-                <button style={Styles} className="hover:bg-[]">
+                <button style={Styles} className="hover:bg-gray-700">
                   Politics
                 </button>
               </div>

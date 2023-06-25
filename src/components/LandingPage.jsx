@@ -10,16 +10,18 @@ export const LandingPage = () => {
 
   const [isSticky, setIsSticky] = useState(false);
 
-  const handleScrollSticky = () => {
-    const scrollPosition = window.pageYOffset;
-    const navbarHeight = 80;
+  
+const handleSticky =()=>{
+  if (window.scrollY>920){
+    setIsSticky(true)
 
-    if (scrollPosition >= navbarHeight) {
-      setIsSticky(true);
-    } else {
-      setIsSticky(false);
-    }
-  };
+  }
+  else{
+    setIsSticky(false)
+  }
+}
+
+
   const handleScroll =()=>{
     if (window.scrollY>80){
 
@@ -31,19 +33,18 @@ export const LandingPage = () => {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScrollSticky);
+    window.addEventListener("scroll", handleSticky);
     return () => {
-      window.removeEventListener("scroll", handleScrollSticky);
+      window.removeEventListener("scroll", handleSticky);
     };
   }, []);
- 
-    window.addEventListener("scroll", handleScroll)
-  
 
+  window.addEventListener("scroll", handleScroll)
+ 
+  
   const Scroll = {
     backgroundColor: "white",
     position: "fixed",
-    
     width: "100%",
   };
 
