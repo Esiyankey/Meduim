@@ -2,19 +2,18 @@ import { useState, useEffect } from "react";
 import { BsBookmark } from "react-icons/bs";
 export const Articles = ({ isSticky }) => {
   const Styles = {
-    paddingLeft: "1.7rem",
-    paddingRight: "1.7rem",
+    paddingLeft: "1.1rem",
+    paddingRight: "1.1rem",
     paddingTop: "0.6rem",
     paddingBottom: "0.6rem",
     borderRadius: "30px",
     backgroundColor: "#f5f5f5",
   };
-  const Sticky ={
-    position:"fixed",
-    left:"60%",
-    top:"150px",
-  }
-
+  const Sticky = {
+    position: "fixed",
+    left: "61%",
+    top: "110px",
+  };
 
   const List = [
     {
@@ -199,12 +198,10 @@ export const Articles = ({ isSticky }) => {
     },
   ];
 
- 
-
   return (
     <>
       <div className="mt-14 flex  ">
-        <div className="flex-[60%] overflow-y-auto ">
+        <div className="flex-[65%] overflow-y-auto ">
           {List.map((item) => {
             return (
               <div className="flex gap-7 w-[45rem] mx-auto mb-20 ">
@@ -251,13 +248,15 @@ export const Articles = ({ isSticky }) => {
             );
           })}
         </div>
-        <div
-          className={`flex-[40%]   `}
-  
-        >
-          <div className={`border-b-2 transition duration-1000 ease-in max-w-[500px] ${isSticky ? "Sticky" : ""}`} style={isSticky? Sticky:null}>
+        <div className={`flex-[35%]   `}>
+          <div
+            className={` transition duration-1000 ease-in max-w-[480px] ${
+              isSticky ? "Sticky" : ""
+            }`}
+            style={isSticky ? Sticky : null}
+          >
             <div className="mb-6">
-              <h3 className="text-[1rem] text-[#292929] font-[500]">
+              <h3 className="text-[1.1rem] text-[#292929] font-[500]">
                 Discover more of what matters to you
               </h3>
             </div>
@@ -311,8 +310,21 @@ export const Articles = ({ isSticky }) => {
                 </button>
               </div>
             </div>
-            <div className="  `, mt-7 mb-6 text-[#00791e] hover:text-[black] transition duration-700 ease">
+            <div className=" border-b-2 mt-7 pb-6 text-[#00791e] hover:text-[black] transition duration-700 ease">
               <span>See more topics</span>
+            </div>
+
+            <div className="mt-5 flex gap-5  flex-wrap">
+              <button>Help</button>
+              <button>Status</button>
+              <button>Writers</button>
+              <button>Blog</button>
+              <button>Careers</button>
+              <button>Privacy</button>
+              <button>Terms</button>
+              <button>About</button>
+              <button>Text to speech</button>
+              <button>Teams</button>
             </div>
           </div>
         </div>
