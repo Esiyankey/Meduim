@@ -64,7 +64,7 @@ const handleSticky =()=>{
         {showModal && <ModalLogin handleCloseModal={handleCloseModal} />}
         <div className="bg-[#ffbd00] ">
           <div
-            className={`bg-[#ffbd00] fixed w-full z-10  transition duration-700 ease border-b-2 border-[#1f1e1e] ${
+            className={`bg-[#ffbd00] fixed w-full z-10  transition duration-700 ease  border-b-2 border-[#1f1e1e] ${
               scroll ? "Scroll" : ""
             } `}
             style={scroll ? Scroll : null}
@@ -72,7 +72,7 @@ const handleSticky =()=>{
           >
             <div className="max-w-7xl mx-auto ">
               <div className="flex items-center  justify-between  h-[80px] py-5  w-full z-10">
-                <div>
+                <div className="ml-2 md:ml-0">
                   <img
                     src={medium}
                     alt="Medium Logo here"
@@ -80,12 +80,12 @@ const handleSticky =()=>{
                   />
                 </div>
                 <div className="flex gap-10 text-[1rem]">
-                  <button>Our Story</button>
-                  <button>Membership</button>
-                  <button>Write</button>
-                  <button onClick={handleShowModal}>Sign In</button>
+                  <button className="hidden md:flex">Our Story</button>
+                  <button className="hidden md:flex">Membership</button>
+                  <button className="hidden md:flex">Write</button>
+                  <button className="hidden md:flex" onClick={handleShowModal}>Sign In</button>
                   <button
-                    className={`px-5 py-[0.6rem] bg-black rounded-[30px] text-white ${
+                    className={`px-5 py-[0.6rem] md:mr-0 mr-4 bg-black rounded-[30px] text-white ${
                       scroll ? "Color" : ""
                     } `}
                     style={scroll ? Color : null}
@@ -99,32 +99,32 @@ const handleSticky =()=>{
           </div>
           <div className="border-b-2  border-[black] ">
             <div className="max-w-7xl mx-auto ">
-              <div className="flex flex-col pt-[9.6rem]  h-[580px]   transition duration-[1000] ease">
-                <h1 className="text-[6.5rem]  font-display font-[400] tracking-normal">
+              <div className="flex flex-col md:pt-[9.6rem] py-[9rem] h-[600px] md:h-[580px]   transition duration-[1000] ease">
+                <h1 className="md:text-[6.5rem] pl-7 pb-6 md:pb-0 text-[5.2rem]  font-display leading-none">
                   Stay curious.
                 </h1>
-                <h3 className="text-[1.5rem] font-[400] ">
-                  Discover stories, thinking and expertise <br /> from writer on
+                <h3 className="text-[1.6rem] leading-none pl-7 font-[500] pb-6 md:pb-0">
+                  Discover stories, thinking and expertise  from writer on
                   any topic.
                 </h3>
                 <button
-                  className="flex mt-12 font-[400] px-9 py-2 w-[230px] bg-[#191919] hover:bg-[black] text-white rounded-[30px] items-center text-center justify-center text-[1.25rem]"
+                  className="flex md:mt-12 font-[400] px-9 py-3 w-[230px] bg-[#191919] hover:bg-[black] ml-6 mt-6 text-white rounded-[30px] items-center text-center justify-center text-[1.25rem]"
                   onClick={handleShowModal}
                 >
                   Start reading
                 </button>
-                <div></div>
+                
               </div>
             </div>
           </div>
         </div>
         <div className=" pt-10  border-color border-b-2 pb-10">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex gap-3 mb-2">
+          <div className="max-w-7xl mx-auto ">
+            <div className="flex gap-3  mb-2">
               <BsGraphUpArrow/>
               <h4 className="mb-3 text-[1rem] font-[500]">Trending on Medium</h4>
             </div>
-            <div className="grid grid-cols-3  gap-y-12 ">
+            <div className="md:grid md:grid-cols-3  gap-y-12 ">
               <div className="flex gap-4 ">
                 <div>
                   <span className="text-[2rem] opacity-[0.1] font-bold relative bottom-[0.9rem] ">01</span>

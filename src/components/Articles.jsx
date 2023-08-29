@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { BsBookmark } from "react-icons/bs";
 export const Articles = ({ isSticky }) => {
+  const [isBigScreen, setIsBigScreen] = useState(window.innerWidth >= 768);
+
   const Styles = {
     paddingLeft: "1.1rem",
     paddingRight: "1.1rem",
@@ -198,14 +200,30 @@ export const Articles = ({ isSticky }) => {
     },
   ];
 
+
+
+  useEffect(() => {
+    function handleResize() {
+      setIsBigScreen(window.innerWidth >= 768);
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+
   return (
     <>
-      <div className="mt-14 flex  ">
-        <div className="flex-[65%] overflow-y-auto ">
+      <div className="mt-14  flex flex-col-reverse md:flex-row">
+        {/* flex-col-reverse */}
+        <div className="md:flex-[65%] overflow-y-auto ">
           {List.map((item) => {
             return (
-              <div className="flex gap-7 w-[45rem] mx-auto mb-20 ">
-                <div className="w-[30rem]">
+              <div className="flex gap-7 md:w-[45rem] md:mx-auto mb-20 mx-[1rem]">
+                <div className="md:w-[30rem] w-[20rem]">
                   <div className="flex items-center gap-2">
                     <img
                       src={item.imgPortfolio}
@@ -215,9 +233,9 @@ export const Articles = ({ isSticky }) => {
                     <div className="font-[400] text-[0.8rem]"> {item.name}</div>
                   </div>
                   <div>
-                    <h3 className="font-[700] text-[1.5rem]  ">{item.title}</h3>
+                    <h3 className="font-[700] text-[1rem]  md:text-[1.5rem]  ">{item.title}</h3>
                   </div>
-                  <div className="pt-3 opacity-[0.8]">
+                  <div className="pt-3 opacity-[0.8] hidden md:flex">
                     <h5>{item.body}</h5>
                   </div>
                   <div className="flex justify-between items-center  pt-2 opacity-[0.8]">
@@ -241,19 +259,17 @@ export const Articles = ({ isSticky }) => {
                   <img
                     src={item.img}
                     alt=" image here"
-                    className="h-[9.5rem] relative top-6 w-[13rem] object-cover "
+                    className=" h-[7rem] md:h-[9.5rem] relative top-6 w-[8rem] md:w-[13rem] object-cover "
                   />
                 </div>
               </div>
             );
           })}
         </div>
-        <div className={`flex-[35%]   `}>
+        <div className={`md:flex-[35%]  mx-[1rem] `}>
           <div
-            className={` transition duration-1000 ease-in max-w-[480px] ${
-              isSticky ? "Sticky" : ""
-            }`}
-            style={isSticky ? Sticky : null}
+            className={` transition duration-1000 ease-in max-w-[480px] ${ isBigScreen && isSticky ? "Sticky " : ""  }`}
+            style={isBigScreen && isSticky ? Sticky : null}
           >
             <div className="mb-6">
               <h3 className="text-[1.1rem] text-[#292929] font-[500]">

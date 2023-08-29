@@ -11,6 +11,7 @@ import { app } from "./firebase.js";
 import { getAuth } from "firebase/auth";
 import { FaTwitter } from "react-icons/fa";
 import medLogo from "../assets/med-log.png";
+import { Link } from "react-router-dom";
 import "../styles/Loader.css";
 
 export const HomePage = () => {
@@ -102,8 +103,9 @@ export const HomePage = () => {
             </div>
             <div className="flex justify-between items-center mr-5 gap-7">
               <div className="flex items-center text-lg opacity-50 gap-2">
-                <SlNote />
-                <h4>Write</h4>
+                
+                <SlNote/>
+                <Link to="/write">Write</Link>
               </div>
               <div className="flex items-center">
                 <button>
