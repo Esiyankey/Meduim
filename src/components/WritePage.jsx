@@ -28,9 +28,9 @@ export const WritePage = () => {
     // setHideTitleInput(!hideTitleInput)
   }
   // setHideStoryInput(!hideStoryInput)
-  const handleHideIcon=()=>{
-    setShowIcon(false)
-  }
+  // const handleHideIcon=()=>{
+  //   setShowIcon(false)
+  // }
   // setHideStoryInput(!showStoryInput)
    
   // const handleHideStoryInput=()=>{
