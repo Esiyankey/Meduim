@@ -21,6 +21,7 @@ export const WritePage = () => {
   };
   const handleStoryFocus = () => {
     setStoryFocus(true);
+    setTitleFocus(false)
   };
   const handleShowIcon =()=>{
     setShowIcon(!showIcon)
@@ -45,6 +46,7 @@ export const WritePage = () => {
 const hideTitleInput = titleFocus && showIcon;
 const hideStoryInput = storyFocus && showIcon;
  
+console.log(hideTitleInput)
  
   return (
     <>
